@@ -17,9 +17,11 @@ var gulpPlugins = require('gulp-load-plugins')({
 // Define file path variables
 var paths = {
   root: 'app/',      // App root path
-  src:  'app/js/',   // Source path
+  e2e: 'e2e/',      // e2e tests path
+  src:  'app/src/',   // Source path
   dist: 'app/dist/', // Distribution path
   test: 'test/',     // Test path
+  unitTestGlob: 'app/**/*_test.js',  // Tests glob
 };
 
 /*
@@ -102,7 +104,7 @@ gulp.task('browserify-min', ['ngAnnotate'], function () {
 gulp.task('browserify-tests', function () {
   var bundler = browserify({debug: true});
   glob
-  .sync(paths.test + 'unit/**/*.js')
+  .sync(paths.unitTestGlob)
   .forEach(function (file) {
     bundler.add(file);
   });

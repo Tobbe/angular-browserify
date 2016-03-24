@@ -7,7 +7,7 @@ exports.config = {
     'browserName': 'chrome'
   },
 
-  specs: ['test/e2e/**/*_spec.js'],
+  specs: ['e2e/**/*_spec.js'],
 
   rootElement: '.content',
 

@@ -10,7 +10,7 @@ pushd $bin_path/.. > /dev/null
 mkdir app/dist 2> /dev/null
 
 $browserify_cmd \
-  --entry app/js/app.js \
+  --entry app/app.js \
   --outfile app/dist/app.js \
   --debug \
   --verbose
