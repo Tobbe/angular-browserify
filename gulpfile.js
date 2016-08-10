@@ -143,7 +143,8 @@ gulp.task('e2e', ['server'], function () {
 gulp.task('watch', function () {
   gulp.start('server-livereload');
   gulp.watch([
-    paths.src + '**/*.js',
+    paths.root + '*.{html,js}',
+    paths.src + '**/*.{html,js}',
     paths.test + '**/*.js',
   ], ['browserify']);
 });
