@@ -62,9 +62,8 @@ gulp.task('lint', function () {
 });
 
 gulp.task('unit', function () {
-    return gulp.src([
-            paths.test + 'unit/**/*.js'
-        ])
+    return gulp
+        .src([paths.test + 'unit/**/*.js'])
         .pipe(gulpPlugins.mocha({reporter: 'dot'}));
 });
 
@@ -78,9 +77,8 @@ gulp.task('browserify', ['clean', 'lint', 'unit'], function () {
 });
 
 gulp.task('ngAnnotate', ['lint', 'unit'], function () {
-    return gulp.src([
-            paths.src + '**/*.js',
-        ])
+    return gulp
+        .src([paths.src + '**/*.js',])
         .pipe(gulpPlugins.ngAnnotate())
         .pipe(gulp.dest(paths.root + 'ngAnnotate'));
 });
