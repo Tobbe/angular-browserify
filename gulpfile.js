@@ -25,7 +25,7 @@ var paths = {
 
 /*
  * Useful tasks:
- * - gulp fast:
+ * - gulp browserify:
  *   - linting
  *   - unit tests
  *   - browserification
@@ -146,11 +146,7 @@ gulp.task('watch', function () {
     paths.src + '**/*.js',
     '!' + paths.src + 'third-party/**',
     paths.test + '**/*.js',
-  ], ['fast']);
-});
-
-gulp.task('fast', function () {
-  gulp.start('browserify');
+  ], ['browserify']);
 });
 
 gulp.task('default', ['clean'], function () {
