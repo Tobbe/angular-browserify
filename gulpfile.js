@@ -48,12 +48,10 @@ var paths = {
  */
 
 var liveReload = true;
-var watcherActive = false;
 
 gulp.task('clean', function () {
-  var dist = watcherActive ? paths.dist + '**/!(*.js)' : paths.dist; // excluding to prevent bug with browserify created file on task 'watch'
   return gulp
-  .src([paths.root + 'ngAnnotate', dist], {read: false})
+  .src([paths.root + 'ngAnnotate', paths.dist], {read: false})
   .pipe(vinylPaths(del));
 });
 
@@ -80,7 +78,8 @@ gulp.task('browserify', /*['lint', 'unit'],*/ function () {
   return browserify(paths.src + 'app.js', {debug: true})
   .bundle()
   .pipe(source('app.js'))
-  .pipe(gulp.dest(paths.dist));
+  .pipe(gulp.dest(paths.dist))
+  .pipe(gulpPlugins.connect.reload());
 });
 
 gulp.task('ngAnnotate', ['lint', 'unit'], function () {
@@ -127,14 +126,6 @@ gulp.task('server', ['browserify'], function () {
   });
 });
 
-gulp.task('webserver', ['browserify'], function(){
-  gulp.src('app')
-  .pipe(gulpPlugins.serverLivereload({
-    livereload: liveReload,
-    open: true
-  }));
-});
-
 gulp.task('e2e', ['server'], function () {
   return gulp.src([paths.test + 'e2e/**/*.js'])
   .pipe(gulpPlugins.protractor.protractor({
@@ -150,8 +141,7 @@ gulp.task('e2e', ['server'], function () {
 });
 
 gulp.task('watch', function () {
-  watcherActive = true;
-  gulp.start('webserver');
+  gulp.start('server');
   gulp.watch([
     paths.src + '**/*.js',
     '!' + paths.src + 'third-party/**',
