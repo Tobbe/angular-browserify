@@ -1,11 +1,11 @@
 'use strict';
 
-var browserify = require('browserify')
-  , del = require('del')
-  , source = require('vinyl-source-stream')
-  , glob = require('glob')
-  , Server = require('karma').Server
-  , gulp = require('gulp');
+var browserify = require('browserify');
+var del = require('del');
+var source = require('vinyl-source-stream');
+var glob = require('glob');
+var Server = require('karma').Server;
+var gulp = require('gulp');
 
 // Load all gulp plugins listed in package.json
 var gulpPlugins = require('gulp-load-plugins')({
