@@ -3,7 +3,7 @@
 var chai = require('chai')
   , expect = chai.expect;
 
-var TodoListCtrlModule = require('./todos-list-controller');
+var TodoListCtrlModule = require('../../app/src/todos/todos-list-controller');
 
 describe('The TodoListCtrl', function() {
 

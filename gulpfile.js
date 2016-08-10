@@ -21,7 +21,6 @@ var paths = {
   src:  'app/src/',   // Source path
   dist: 'app/dist/', // Distribution path
   test: 'test/',     // Test path
-  unitTestGlob: 'app/**/*_test.js',  // Tests glob
 };
 
 /*
@@ -104,7 +103,7 @@ gulp.task('browserify-min', ['ngAnnotate'], function () {
 gulp.task('browserify-tests', function () {
   var bundler = browserify({debug: true});
   glob
-  .sync(paths.unitTestGlob)
+  .sync(paths.test + 'unit/**/*.js')
   .forEach(function (file) {
     bundler.add(file);
   });
