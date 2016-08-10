@@ -56,7 +56,6 @@ gulp.task('lint', function () {
   .src(['gulpfile.js',
       paths.src + '**/*.js',
       paths.test + '**/*.js',
-      '!' + paths.src + 'third-party/**',
       '!' + paths.test + 'browserified/**',
   ])
   .pipe(gulpPlugins.eslint())
@@ -82,7 +81,6 @@ gulp.task('browserify', ['clean', 'lint', 'unit'], function () {
 gulp.task('ngAnnotate', ['lint', 'unit'], function () {
   return gulp.src([
       paths.src + '**/*.js',
-      '!' + paths.src + 'third-party/**',
   ])
   .pipe(gulpPlugins.ngAnnotate())
   .pipe(gulp.dest(paths.root + 'ngAnnotate'));
@@ -147,7 +145,6 @@ gulp.task('watch', function () {
   gulp.start('server-livereload');
   gulp.watch([
     paths.src + '**/*.js',
-    '!' + paths.src + 'third-party/**',
     paths.test + '**/*.js',
   ], ['browserify']);
 });
