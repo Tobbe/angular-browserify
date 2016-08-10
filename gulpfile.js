@@ -17,7 +17,6 @@ var gulpPlugins = require('gulp-load-plugins')({
 // Define file path variables
 var paths = {
   root: 'app/',      // App root path
-  e2e: 'e2e/',      // e2e tests path
   src:  'app/src/',   // Source path
   dist: 'app/dist/', // Distribution path
   test: 'test/',     // Test path
