@@ -40,7 +40,6 @@
     "protractor": "^2.5.1",
     "sinon": "^1.9.1",
     "sinon-chai": "^2.5.0",
-    "vinyl-paths": "^2.1.0",
     "vinyl-source-stream": "^1.1.0"
   },
   "browser": {

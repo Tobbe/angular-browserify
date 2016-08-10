@@ -3,7 +3,6 @@
 var browserify = require('browserify')
   , del = require('del')
   , source = require('vinyl-source-stream')
-  , vinylPaths = require('vinyl-paths')
   , glob = require('glob')
   , Server = require('karma').Server
   , gulp = require('gulp');
@@ -50,9 +49,7 @@ var paths = {
 var liveReload = true;
 
 gulp.task('clean', function () {
-  return gulp
-  .src([paths.root + 'ngAnnotate', paths.dist], {read: false})
-  .pipe(vinylPaths(del));
+  return del([paths.root + 'ngAnnotate', paths.dist + '/**/*']);
 });
 
 gulp.task('lint', function () {
