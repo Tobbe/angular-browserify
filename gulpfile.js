@@ -74,7 +74,7 @@ gulp.task('unit', function () {
   .pipe(gulpPlugins.mocha({reporter: 'dot'}));
 });
 
-gulp.task('browserify', /*['lint', 'unit'],*/ function () {
+gulp.task('browserify', ['lint', 'unit'], function () {
   return browserify(paths.src + 'app.js', {debug: true})
   .bundle()
   .pipe(source('app.js'))
