@@ -74,7 +74,7 @@ gulp.task('unit', function () {
   .pipe(gulpPlugins.mocha({reporter: 'dot'}));
 });
 
-gulp.task('browserify', ['lint', 'unit'], function () {
+gulp.task('browserify', ['clean', 'lint', 'unit'], function () {
   return browserify(paths.src + 'app.js', {debug: true})
   .bundle()
   .pipe(source('app.js'))
@@ -149,7 +149,7 @@ gulp.task('watch', function () {
   ], ['fast']);
 });
 
-gulp.task('fast', ['clean'], function () {
+gulp.task('fast', function () {
   gulp.start('browserify');
 });
 
