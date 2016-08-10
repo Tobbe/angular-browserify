@@ -3,6 +3,7 @@
 var browserify = require('browserify');
 var del = require('del');
 var source = require('vinyl-source-stream');
+var buffer = require('vinyl-buffer');
 var glob = require('glob');
 var Server = require('karma').Server;
 var gulp = require('gulp');
@@ -73,6 +74,7 @@ gulp.task('browserify', ['clean', 'lint', 'unit'], function () {
   return browserify(paths.src + 'app.js', {debug: true})
   .bundle()
   .pipe(source('app.js'))
+  .pipe(buffer())
   .pipe(gulp.dest(paths.dist))
   .pipe(gulpPlugins.connect.reload());
 });
