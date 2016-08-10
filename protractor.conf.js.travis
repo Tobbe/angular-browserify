@@ -1,17 +1,17 @@
 exports.config = {
 
-  seleniumAddress: 'http://0.0.0.0:4444/wd/hub',
+    seleniumAddress: 'http://0.0.0.0:4444/wd/hub',
 
-  capabilities: {
-    'browserName': 'phantomjs'
-  },
+    capabilities: {
+        'browserName': 'phantomjs'
+    },
 
-  specs: ['test/e2e/**/*_spec.js'],
+    specs: ['test/e2e/**/*_spec.js'],
 
-  rootElement: '.content',
+    rootElement: '.content',
 
-  jasmineNodeOpts: {
-    showColors: true,
-    defaultTimeoutInterval: 30000
-  }
+    jasmineNodeOpts: {
+        showColors: true,
+        defaultTimeoutInterval: 30000
+    }
 };

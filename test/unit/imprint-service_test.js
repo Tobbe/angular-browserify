@@ -7,15 +7,15 @@ var ImprintServiceModule = require('../../app/src/imprint/imprint-service');
 
 describe('The ImprintService', function() {
 
-  var ImprintService;
+    var ImprintService;
 
-  beforeEach(function() {
-    ImprintService = new ImprintServiceModule();
-  });
+    beforeEach(function() {
+        ImprintService = new ImprintServiceModule();
+    });
 
-  it('should provide the imprint text', function() {
-    var text = ImprintService.getText();
-    expect(text.length).to.be.above(30);
-  });
+    it('should provide the imprint text', function() {
+        var text = ImprintService.getText();
+        expect(text.length).to.be.above(30);
+    });
 
 });

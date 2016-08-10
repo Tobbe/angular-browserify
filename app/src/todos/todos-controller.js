@@ -1,5 +1,5 @@
 'use strict';
 
 module.exports = function($scope, TodoService) {
-  $scope.todo = TodoService.getTodos()[0];
+    $scope.todo = TodoService.getTodos()[0];
 };

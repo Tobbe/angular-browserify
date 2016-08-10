@@ -1,4 +1,4 @@
 exports.config = {
-  directConnect: true,
-  rootElement: '.content',
+    directConnect: true,
+    rootElement: '.content',
 };
