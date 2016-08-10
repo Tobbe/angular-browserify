@@ -140,8 +140,7 @@ gulp.task('e2e', ['server'], function () {
   });
 });
 
-gulp.task('watch', function () {
-  gulp.start('server-livereload');
+gulp.task('watch', ['server-livereload'], function () {
   gulp.watch([
     paths.root + '*.{html,js}',
     paths.src + '**/*.{html,js}',
