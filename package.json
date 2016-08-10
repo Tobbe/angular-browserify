@@ -1,8 +1,8 @@
 {
-  "name": "angular-browserify-seed",
-  "version": "0.1.0",
+  "name": "angular-browserify",
+  "version": "0.1.1",
   "description": "Yet another example project with Angular, Browserify and Gulp",
-  "repository": "https://github.com/basti1302/angular-browserify-seed",
+  "repository": "https://github.com/tobbe/angular-browserify",
   "license": "MIT",
   "scripts": {
     "postinstall": "webdriver-manager update",
