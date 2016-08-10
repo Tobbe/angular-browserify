@@ -46,8 +46,6 @@ var paths = {
  * background all the time. Use 'gulp' before releases.
  */
 
-var liveReload = true;
-
 gulp.task('clean', function () {
   return del([paths.root + 'ngAnnotate', paths.dist + '/**/*']);
 });
@@ -119,7 +117,13 @@ gulp.task('karma', ['browserify-tests'], function (done) {
 gulp.task('server', ['browserify'], function () {
   gulpPlugins.connect.server({
     root: 'app',
-    livereload: liveReload,
+  });
+});
+
+gulp.task('server-livereload', ['browserify'], function () {
+  gulpPlugins.connect.server({
+    root: 'app',
+    livereload: true,
   });
 });
 
@@ -138,7 +142,7 @@ gulp.task('e2e', ['server'], function () {
 });
 
 gulp.task('watch', function () {
-  gulp.start('server');
+  gulp.start('server-livereload');
   gulp.watch([
     paths.src + '**/*.js',
     '!' + paths.src + 'third-party/**',
@@ -147,6 +151,5 @@ gulp.task('watch', function () {
 });
 
 gulp.task('default', ['clean'], function () {
-  liveReload = false;
   gulp.start('karma', 'browserify', 'browserify-min', 'e2e');
 });
