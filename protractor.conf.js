@@ -3,6 +3,8 @@ exports.config = {
     rootElement: '.content',
     capabilities: {
         'browserName': 'chrome',
-        'chromeOptions': {'args': ['--disable-extensions --disable-web-security --disk-cache-size=1 --media-cache-size=1']}
+        'chromeOptions': {
+            'args': ['disable-extensions', 'disable-web-security', 'disk-cache-size=1', 'media-cache-size=1']
+        },
     },
 };
