@@ -9,8 +9,6 @@ describe('The todo app', function() {
     beforeEach(function() {
         todoPage = new TodoPage();
         todoPage.open();
-        // see comment in test/e2e/list_todo_spec.js
-        browser.ignoreSynchronization = true;
     });
 
     it('should select a different todo from the sidebar', function() {
